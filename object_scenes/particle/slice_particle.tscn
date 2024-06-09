@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckboltlcrcodc"]
+
+[ext_resource type="Texture2D" uid="uid://bpp4wd0kov5wi" path="res://object_scenes/particle/sliceParticle.png" id="1_qko0c"]
+[ext_resource type="Script" path="res://object_scenes/particle/slice_particle.gd" id="2_yurvi"]
+
+[sub_resource type="Curve" id="Curve_m64ee"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 16.1609), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_4olmf"]
+_data = [Vector2(0, 0.65478), 0.0, 9.25266, 0, 0, Vector2(0.107011, 0.980273), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="SliceParticle" type="CPUParticles2D"]
+z_index = 5
+amount = 4
+lifetime = 0.5
+explosiveness = 1.0
+lifetime_randomness = 0.45
+texture = ExtResource("1_qko0c")
+emission_shape = 5
+emission_points = PackedVector2Array(-4, 0)
+emission_normals = PackedVector2Array()
+emission_colors = PackedColorArray()
+direction = Vector2(1, -0.2)
+spread = 11.06
+gravity = Vector2(0, 450)
+initial_velocity_max = 151.73
+damping_max = 23.448
+damping_curve = SubResource("Curve_m64ee")
+scale_amount_curve = SubResource("Curve_4olmf")
+script = ExtResource("2_yurvi")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

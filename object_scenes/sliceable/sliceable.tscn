@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://5w7pk8rhxdwv"]
+
+[ext_resource type="Script" path="res://object_scenes/sliceable/sliceable.gd" id="1_wc733"]
+[ext_resource type="Material" uid="uid://ess5f5u71eti" path="res://object_scenes/sliceable/TransparencyRemoveMaterial.tres" id="2_qyhd4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tfpdd"]
+friction = 0.1
+bounce = 0.2
+
+[node name="Sliceable" type="RigidBody2D" groups=["slice"]]
+collision_layer = 3
+input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_tfpdd")
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_wc733")
+freezePointGlobal = PackedVector2Array()
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+material = ExtResource("2_qyhd4")
+
+[node name="Interior" type="Polygon2D" parent="."]
+z_index = -64
+material = ExtResource("2_qyhd4")
+
+[node name="Interior2" type="Polygon2D" parent="."]
+z_index = -64
+material = ExtResource("2_qyhd4")
+
+[node name="Interior3" type="Polygon2D" parent="."]
+z_index = -64
+material = ExtResource("2_qyhd4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

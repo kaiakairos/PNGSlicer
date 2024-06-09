@@ -1,0 +1,298 @@
+[gd_scene load_steps=22 format=3 uid="uid://4a4uax6p22ua"]
+
+[ext_resource type="Script" path="res://main_scenes/main_tool.gd" id="1_cgkcy"]
+[ext_resource type="PackedScene" uid="uid://yayuckhwyn7d" path="res://object_scenes/mouser/mouser.tscn" id="2_i041x"]
+[ext_resource type="Texture2D" uid="uid://bcbkoulhl0y7o" path="res://ui_scenes/buttons/BGButton.png" id="3_21jg3"]
+[ext_resource type="PackedScene" uid="uid://odw5x3tksxs5" path="res://ui_scenes/buttons/swag_button.tscn" id="3_r30y5"]
+[ext_resource type="Texture2D" uid="uid://4qjltll4a3oh" path="res://ui_scenes/buttons/OBJButton.png" id="4_481b6"]
+[ext_resource type="Texture2D" uid="uid://driqef2frjllg" path="res://ui_scenes/buttons/colorIconChange.png" id="6_0t5gp"]
+[ext_resource type="Shader" path="res://main_scenes/3dspin.gdshader" id="6_1cdtv"]
+[ext_resource type="Texture2D" uid="uid://b82wcjrjwt5o8" path="res://ui_scenes/buttons/colorIconTrans.png" id="6_ys0dk"]
+[ext_resource type="Texture2D" uid="uid://b88m672enbfwd" path="res://ui_scenes/buttons/colorIconBorder.png" id="7_th3b3"]
+[ext_resource type="Texture2D" uid="uid://nrupqgfiv0i2" path="res://ui_scenes/buttons/sound.png" id="10_fv7yn"]
+[ext_resource type="Texture2D" uid="uid://bkyijgcij01ai" path="res://ui_scenes/buttons/info.png" id="10_ve0ui"]
+[ext_resource type="Texture2D" uid="uid://cny3i5ol24dyy" path="res://ui_scenes/buttons/twitter.png" id="12_x3psl"]
+[ext_resource type="Texture2D" uid="uid://b7crko21g03y2" path="res://ui_scenes/buttons/kofi.png" id="13_ujo17"]
+[ext_resource type="Texture2D" uid="uid://ctgvis5k34wvu" path="res://ui_scenes/buttons/ng.png" id="14_onbie"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s37i6"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.109804, 0.309804, 0.329412, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_muog4"]
+content_margin_left = 10.0
+content_margin_top = 28.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.0823529, 0.113725, 0.156863, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 8.0
+expand_margin_top = 36.0
+expand_margin_right = 8.0
+expand_margin_bottom = 9.0
+shadow_color = Color(0.054902, 0.117647, 0.219608, 0.47451)
+shadow_size = 3
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ax1jp"]
+content_margin_left = 10.0
+content_margin_top = 28.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 8.0
+expand_margin_top = 32.0
+expand_margin_right = 8.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="Theme" id="Theme_gkw6j"]
+default_font_size = 32
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_s37i6")
+Window/styles/embedded_border = SubResource("StyleBoxFlat_muog4")
+Window/styles/embedded_unfocused_border = SubResource("StyleBoxFlat_ax1jp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nrks3"]
+shader = ExtResource("6_1cdtv")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = false
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_lqvvn"]
+font_size = 32
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kkyhw"]
+font_size = 24
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[node name="mainTool" type="Node2D"]
+script = ExtResource("1_cgkcy")
+
+[node name="BACKGROUND COLOR" type="ColorRect" parent="."]
+z_index = -6
+offset_left = -5067.0
+offset_top = -5526.0
+offset_right = 4668.0
+offset_bottom = 2489.0
+color = Color(0.372549, 0.815686, 0.705882, 1)
+
+[node name="Collider" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider"]
+polygon = PackedVector2Array(-300, 0, -300, -591, -401, -591, -415, 82, 372, 60, 379, -601, 300, -598, 300, 0)
+
+[node name="floorassurance" type="CollisionPolygon2D" parent="Collider"]
+polygon = PackedVector2Array(-3000, -16, 3000, -16, 0, 123.58)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(25, 121)
+size = Vector2i(569, 652)
+theme = SubResource("Theme_gkw6j")
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpg")
+
+[node name="preview" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.329412)
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -5
+
+[node name="Mouser" parent="." instance=ExtResource("2_i041x")]
+
+[node name="sliceableContainer" type="Node2D" parent="."]
+
+[node name="UILeft" type="Node2D" parent="."]
+position = Vector2(-300, -300)
+
+[node name="BG" parent="UILeft" instance=ExtResource("3_r30y5")]
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 70.0
+offset_bottom = 68.0
+tooltip_text = "change background"
+img = ExtResource("3_21jg3")
+
+[node name="OBJ" parent="UILeft" instance=ExtResource("3_r30y5")]
+offset_left = 84.0
+offset_top = 20.0
+offset_right = 132.0
+offset_bottom = 68.0
+tooltip_text = "select image to spawn"
+img = ExtResource("4_481b6")
+
+[node name="colorChange" type="Button" parent="UILeft"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 156.0
+offset_top = 30.0
+offset_right = 184.0
+offset_bottom = 58.0
+tooltip_text = "change background color"
+flat = true
+
+[node name="balls" type="Node2D" parent="UILeft/colorChange"]
+position = Vector2(14, 14)
+
+[node name="ColorIconTrans" type="Sprite2D" parent="UILeft/colorChange/balls"]
+texture = ExtResource("6_ys0dk")
+
+[node name="ColorIconChange" type="Sprite2D" parent="UILeft/colorChange/balls"]
+modulate = Color(0.372549, 0.815686, 0.705882, 1)
+texture = ExtResource("6_0t5gp")
+
+[node name="border" type="Sprite2D" parent="UILeft/colorChange/balls"]
+texture = ExtResource("7_th3b3")
+
+[node name="Panel" type="Panel" parent="UILeft"]
+visible = false
+offset_left = 15.0
+offset_top = 81.0
+offset_right = 332.0
+offset_bottom = 578.0
+
+[node name="ColorPicker" type="ColorPicker" parent="UILeft/Panel"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 11.0
+offset_right = 311.0
+offset_bottom = 587.0
+color = Color(0.372549, 0.815686, 0.705882, 1)
+color_mode = 1
+sampler_visible = false
+presets_visible = false
+
+[node name="preview" type="Sprite2D" parent="UILeft"]
+material = SubResource("ShaderMaterial_nrks3")
+position = Vector2(133, 65)
+scale = Vector2(0.235, 0.235)
+
+[node name="soundToggle" type="Button" parent="UILeft"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 191.0
+offset_top = 32.0
+offset_right = 217.0
+offset_bottom = 57.0
+
+[node name="Sound" type="Sprite2D" parent="UILeft/soundToggle"]
+position = Vector2(12, 12)
+texture = ExtResource("10_fv7yn")
+hframes = 2
+
+[node name="UIRight" type="Node2D" parent="."]
+position = Vector2(300, -300)
+
+[node name="infoButton" type="Button" parent="UIRight"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -35.0
+offset_top = 10.0
+offset_right = -8.0
+offset_bottom = 37.0
+flat = true
+
+[node name="Info" type="Sprite2D" parent="UIRight"]
+position = Vector2(-22, 23)
+texture = ExtResource("10_ve0ui")
+
+[node name="Panel" type="Panel" parent="UIRight"]
+visible = false
+offset_left = -445.0
+offset_top = 46.0
+offset_right = -11.0
+offset_bottom = 370.0
+pivot_offset = Vector2(434, 0)
+
+[node name="Label" type="Label" parent="UIRight/Panel"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 8.0
+offset_right = 429.0
+offset_bottom = 215.0
+text = "Left click + drag to slice
+Right click + drag to move object
+Middle click or D to place object
+E to erase
+R to reset entire room
+ESC to toggle UI
+
+kaiakairos'
+PNGSlicer v1.0"
+label_settings = SubResource("LabelSettings_lqvvn")
+horizontal_alignment = 2
+
+[node name="twit" type="Button" parent="UIRight/Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 286.0
+offset_right = 39.0
+offset_bottom = 318.0
+
+[node name="s" type="Sprite2D" parent="UIRight/Panel/twit"]
+position = Vector2(17, 16)
+texture = ExtResource("12_x3psl")
+
+[node name="kofi" type="Button" parent="UIRight/Panel"]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 286.0
+offset_right = 76.0
+offset_bottom = 318.0
+
+[node name="s" type="Sprite2D" parent="UIRight/Panel/kofi"]
+position = Vector2(16, 16)
+texture = ExtResource("13_ujo17")
+
+[node name="ng" type="Button" parent="UIRight/Panel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 286.0
+offset_right = 113.0
+offset_bottom = 318.0
+
+[node name="s" type="Sprite2D" parent="UIRight/Panel/ng"]
+position = Vector2(16, 16)
+texture = ExtResource("14_onbie")
+
+[node name="error" type="Label" parent="UIRight"]
+offset_left = -2444.0
+offset_top = 7.0
+offset_right = -45.0
+offset_bottom = 100.0
+label_settings = SubResource("LabelSettings_kkyhw")
+horizontal_alignment = 2
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
+[connection signal="pressed" from="UILeft/BG" to="." method="_on_bg_pressed"]
+[connection signal="pressed" from="UILeft/OBJ" to="." method="_on_obj_pressed"]
+[connection signal="pressed" from="UILeft/colorChange" to="." method="_on_color_change_pressed"]
+[connection signal="color_changed" from="UILeft/Panel/ColorPicker" to="." method="_on_color_picker_color_changed"]
+[connection signal="pressed" from="UILeft/soundToggle" to="." method="_on_sound_toggle_pressed"]
+[connection signal="pressed" from="UIRight/infoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="UIRight/Panel/twit" to="." method="_on_twit_pressed"]
+[connection signal="pressed" from="UIRight/Panel/kofi" to="." method="_on_kofi_pressed"]
+[connection signal="pressed" from="UIRight/Panel/ng" to="." method="_on_ng_pressed"]

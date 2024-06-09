@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://odw5x3tksxs5"]
+
+[ext_resource type="Script" path="res://ui_scenes/buttons/swag_button.gd" id="1_w62n8"]
+
+[node name="SwagButton" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = 24.0
+pivot_offset = Vector2(24, 24)
+flat = true
+script = ExtResource("1_w62n8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

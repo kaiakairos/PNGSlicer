@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ess5f5u71eti"]
+
+[ext_resource type="Shader" path="res://object_scenes/sliceable/removeTransparency.gdshader" id="1_d053e"]
+
+[resource]
+shader = ExtResource("1_d053e")

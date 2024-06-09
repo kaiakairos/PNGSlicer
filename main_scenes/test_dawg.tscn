@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://60gh6q8wge7r"]
+
+[ext_resource type="PackedScene" uid="uid://5w7pk8rhxdwv" path="res://object_scenes/sliceable/sliceable.tscn" id="1_uhp6v"]
+[ext_resource type="Texture2D" uid="uid://d0sjgnlsiuaru" path="res://icon.svg" id="2_5kxvj"]
+[ext_resource type="PackedScene" uid="uid://yayuckhwyn7d" path="res://object_scenes/mouser/mouser.tscn" id="3_mhk1o"]
+
+[node name="testDawg" type="Node2D"]
+
+[node name="Sliceable" parent="." instance=ExtResource("1_uhp6v")]
+position = Vector2(367, 218)
+freeze = true
+texture = ExtResource("2_5kxvj")
+isFrozen = true
+freezePointGlobal = PackedVector2Array(325, 257)
+
+[node name="Mouser" parent="." instance=ExtResource("3_mhk1o")]
+position = Vector2(325, 257)
