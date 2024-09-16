@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 .export/
+addons/godot-box2d/bin/~libgodot-box2d.windows.template_debug.x86_64.dll
+addons/godot-git-plugin/win64/~libgit_plugin.windows.editor.x86_64.dll
